@@ -23,6 +23,16 @@
 			<artifactId>spark-core</artifactId>
 			<version>2.5</version>
 		</dependency>
+		<dependency>
+			<groupId>wisepaas</groupId>
+			<artifactId>scada</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
+		</dependency>
 
 	</dependencies>
 </project>
