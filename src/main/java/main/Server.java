@@ -37,8 +37,11 @@ public class Server {
 	}
 
 	public static void main(String[] arg) {
+		port(3000);
+
 		DatastoreOptions options = new DatastoreOptions();
-		options.url = "127.0.0.1:50051";
+		options.url = System.getenv("GRPC_SERVER_URL") != null ? System.getenv("GRPC_SERVER_URL") : "127.0.0.1:50051";
+
 		Datastore datastore = new Datastore(options);
 
 		post("/api/RealData/raw", (request, response) -> {
