@@ -8,12 +8,11 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import sdk.Datastore;
-
-import model.*;
-import model.req.*;
-import model.req.tag.*;
-import model.value.*;
+import wisepaas.datahub.cloud.sdk.*;
+import wisepaas.datahub.cloud.sdk.model.*;
+import wisepaas.datahub.cloud.sdk.model.req.*;
+import wisepaas.datahub.cloud.sdk.model.req.tag.*;
+import wisepaas.datahub.cloud.sdk.model.value.*;
 
 // test example
 // start 2020-01-01T01:01:00.00Z
