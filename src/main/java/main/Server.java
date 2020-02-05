@@ -8,13 +8,12 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import model.DatastoreOptions;
-import model.Tag;
-import model.TagValue;
-import scada.Datastore;
-import model.RealDataRequest;
-import model.HistRawDataRequest;
-import model.HistRawTagValue;
+import sdk.Datastore;
+
+import model.*;
+import model.req.*;
+import model.req.tag.*;
+import model.value.*;
 
 // test example
 // start 2020-01-01T01:01:00.00Z
@@ -23,7 +22,7 @@ import model.HistRawTagValue;
 
 public class Server {
 	static String realDataController(Datastore datastore, RealDataRequest dataReq) {
-		ArrayList<TagValue> resp = datastore.GetRealData(dataReq);
+		ArrayList<RealRawTagValue> resp = datastore.GetRealData(dataReq);
 
 		String result = new Gson().toJson(resp);
 		return result;
