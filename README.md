@@ -1,5 +1,19 @@
 
-!!!!!!!! NEED TO ADD Usage flow with some picture
+!!!!!!!! NEED TO ADD Usage flow with some 
+picture
+
+note:!! 這只是sample提供參考而已, 此web server並沒有特別作錯誤例外處理, 請開發者依據實際情況實作
+
+列個簡單的api doc
+
+req end point
+req body
+resp example
+
+## Prerequisition
+
+Runnable GRPC SERVER
+
 ## Using sample image to test directly
 We will publish sample image to dockerhub.
 

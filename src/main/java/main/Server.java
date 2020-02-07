@@ -3,9 +3,11 @@ package main;
 import static spark.Spark.*;
 
 import java.lang.reflect.Type;
+
 import java.util.ArrayList;
 
-import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import com.google.gson.reflect.TypeToken;
 
 import wisepaas.datahub.cloud.sdk.*;
@@ -23,16 +25,18 @@ public class Server {
 	static String realDataController(Datastore datastore, RealDataRequest dataReq) {
 		ArrayList<RealRawTagValue> resp = datastore.GetRealData(dataReq);
 
-		String result = new Gson().toJson(resp);
+		String result = GsonFactory.getGson().toJson(resp);
 		return result;
 	}
 
 	static String histRawDataController(Datastore datastore, HistRawDataRequest dataReq) {
 		ArrayList<HistRawTagValue> resp = datastore.GetHistRawData(dataReq);
 
-		String result = new Gson().toJson(resp);
+		String result = GsonFactory.getGson().toJson(resp);
 		return result;
 	}
+
+	static GsonBuilder builder = new GsonBuilder();
 
 	public static void main(String[] arg) {
 		port(3000);
@@ -43,10 +47,10 @@ public class Server {
 		Datastore datastore = new Datastore(options);
 
 		post("/api/RealData/raw", (request, response) -> {
-
 			Type listType = new TypeToken<ArrayList<Tag>>() {
 			}.getType();
-			ArrayList<Tag> jsonArr = new Gson().fromJson(request.body(), listType);
+
+			ArrayList<Tag> jsonArr = GsonFactory.getGson().fromJson(request.body(), listType);
 
 			RealDataRequest dataReq = new RealDataRequest();
 			dataReq.tags = jsonArr;
@@ -58,7 +62,7 @@ public class Server {
 		});
 
 		post("/api/HistData/raw", (request, response) -> {
-			HistRawDataRequest dataReq = new Gson().fromJson(request.body(), HistRawDataRequest.class);
+			HistRawDataRequest dataReq = GsonFactory.getGson().fromJson(request.body(), HistRawDataRequest.class);
 
 			response.type("application/json");
 
