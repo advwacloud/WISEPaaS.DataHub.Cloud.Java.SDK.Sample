@@ -18,7 +18,7 @@ Runnable GRPC SERVER
 We will publish sample image to dockerhub.
 
 ```
-sudo docker run -p 8080:3000 --env GRPC_SERVER_URL=127.0.0.1:50051 advwacloud/grpc-sample-server:latest
+sudo docker run -p 8080:3000 --env GRPC_SERVER_URL=127.0.0.1:50051 advwacloud/cloud-sdk-java-sample
 ```
 
 >8080: external port, you can change this value by yourself
@@ -29,7 +29,7 @@ sudo docker run -p 8080:3000 --env GRPC_SERVER_URL=127.0.0.1:50051 advwacloud/gr
 
 ## Rebuild image with your own modify
 ```
-sudo docker build -t advwacloud/grpc-sample-server .
+sudo docker build -t advwacloud/cloud-sdk-java-sample .
 ```
 
 
